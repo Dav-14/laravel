@@ -5,6 +5,9 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -46,6 +49,13 @@ Route::post('users', [UsersController::class, 'postInfos']);
 Route::get('contact', [ContactController::class, 'get']);
 Route::post('contact', [ContactController::class, 'post']);
 
+Route::get('photo', [PhotoController::class, 'get']);
+Route::post('photo', [PhotoController::class, 'post']);
+
+Route::get('email', [EmailController::class, 'get']);
+Route::post('email', [EmailController::class, 'postEmail']);
+
+Route::resource('User', UserController::class);
 
 Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+');
 
